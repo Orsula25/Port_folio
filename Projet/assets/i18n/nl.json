@@ -1,0 +1,51 @@
+{
+  "meta": { "title": "Karmous Orsula - Webontwikkeling (Junior Full Stack)" },
+  "brand": { "name": "Karmous Orsula" },
+  "nav": {
+    "about": "Over mij", "skills": "Vaardigheden", "projects": "Projecten",
+    "path": "Traject", "contact": "Contact", "toggleLabel": "Menu openen"
+  },
+  "hero": {
+    "title": "Webontwikkeling — Junior Full Stack",
+    "subtitle": "Ik zet ideeën om in concrete oplossingen en bouw nuttige functies die de gebruikerservaring echt verbeteren.",
+    "cta": { "projects": "Bekijk mijn projecten", "cv": "Mijn CV downloaden" }
+  },
+  "about": {
+    "title": "Over mij",
+    "tagline": "Nieuwsgierig, nauwkeurig, impactgericht.",
+    "body": "Als full-stack webontwikkelaar vertaal ik businessbehoeften naar concrete, performante en esthetische oplossingen. Mijn boekhoudkundige achtergrond leerde me precisie en organisatie, kwaliteiten die ik toepas in betrouwbare, gestructureerde en gebruiksgerichte apps."
+  },
+  "skills": {
+    "title": "Vaardigheden", "subtitle": "Technologieën en tools in mijn projecten.",
+    "front": { "title": "Front-End", "subtitle": "UI & integratie" },
+    "back":  { "title": "Back-End",  "subtitle": "Server & data" },
+    "tools": { "title": "Tools & API", "subtitle": "Dev & productiviteit" }
+  },
+  "projects": {
+    "title": "Projecten", "subtitle": "Selectie van realisaties", "tech": "Technologieën",
+    "cta": { "demo": "Demo", "code": "Code" },
+    "stock": { "title": "Voorraadbeheer", "desc": "Voorraadbewegingen; CRUD; drempelwaarschuwingen; dashboard..." },
+    "p2":    { "title": "Project 2", "desc": "Beschrijving van project 2." },
+    "p3":    { "title": "Project 3", "desc": "Beschrijving van project 3." }
+  },
+  "path": {
+    "title": "Traject", "subtitle": "Ervaring & diploma’s",
+    "exp": {
+      "title": "Ervaring",
+      "accounting": { "title": "Boekhouding", "desc": "Dossierbeheer A-Z, boekhouding & fiscaliteit" },
+      "webdev":     { "title": "Webontwikkeling", "desc": "Webapps, deelname aan een hackathon, twee projecten ontwikkeld" }
+    },
+    "edu": { "title": "Diploma’s", "accounting": "Boekhouding", "fullstack": "Full-stack webontwikkeling" }
+  },
+  "cv": {
+    "title": "CV", "subtitle": "Beschikbaar in het Frans en Nederlands",
+    "role": "Junior Full-Stack Webontwikkelaar",
+    "download": "Mijn CV downloaden (PDF)",
+    "other": "Andere versies op aanvraag."
+  },
+  "contact": {
+    "title": "Contacteer mij", "subtitle": "Open voor samenwerkingskansen.",
+    "emailLabel": "E-mail", "linkedinLabel": "LinkedIn", "githubLabel": "GitHub"
+  },
+  "fab": { "top": "Terug naar boven" }
+}

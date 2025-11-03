@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="meta.title">Karmous Orsula - Développement Web (Full Stack Junior)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
+  <script src="./assets/js/i18n.js" defer></script>
+</head>
+
+<body id="top" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="80" tabindex="0">
+
+  <!-- Décor flottant -->
+  <div class="floating-shapes"></div>
+
+  <!-- NAV -->
+  <header class="border-bottom sticky-top bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="#" data-i18n="brand.name">Karmous Orsula</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                data-i18n-attr="aria-label:nav.toggleLabel" aria-controls="navbarNav" aria-expanded="false" aria-label="Afficher le menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#a-propos"  data-i18n="nav.about">À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#competences" data-i18n="nav.skills">Compétences</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projets"    data-i18n="nav.projects">Projets</a></li>
+            <li class="nav-item"><a class="nav-link" href="#parcours"   data-i18n="nav.path">Parcours</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact"    data-i18n="nav.contact">Contact</a></li>
+          </ul>
+
+          <!-- Switcher FR/NL -->
+          <div class="ms-lg-3 d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-secondary lang-btn" data-lang="fr" aria-label="Basculer en français">FR</button>
+            <button class="btn btn-sm btn-outline-secondary lang-btn" data-lang="nl" aria-label="Overschakelen naar Nederlands">NL</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main class="mt-4">
+    <section class="py-5 reveal section-full hero">
+      <div class="container no-glass d-flex flex-column align-items-center justify-content-center text-center">
+        <h1 class="h2 mb-3" data-i18n="hero.title">Développeuse Web Full-Stack Junior</h1>
+        <p class="lead mb-0 hero-lead" data-i18n="hero.subtitle">
+          J’aime transformer des idées en solutions concrètes, en développant des fonctionnalités utiles qui améliorent réellement l’expérience des utilisateurs.
+        </p>
+
+        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+          <a class="btn btn-primary btn-lg btn-cta" href="#projets" data-i18n="hero.cta.projects">Voir mes projets</a>
+          <a class="btn btn-primary btn-lg btn-cta" href="#cv" data-i18n="hero.cta.cv">Télécharger mon CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- A PROPOS -->
+<section id="a-propos" class="py-5 reveal section-full section-bg">
+  <div class="container no-glass d-flex flex-column align-items-center justify-content-center text-center">
+
+    <!-- Avatar rond -->
+    <figure class="about-avatar mb-3">
+      <img src="./assets/images/portrait.jpg" alt="Photo de Karmous Orsula">
+    </figure>
+
+    <!-- Titre + tagline (sans barre verte) -->
+    <div class="section-head mb-3">
+      <h2 class="h3 m-0" data-i18n="about.title">À propos</h2>
+      <p class="text-muted small m-0" data-i18n="about.tagline">Curieuse, rigoureuse, orientée impact.</p>
+    </div>
+
+    <!-- Texte sans fond -->
+    <p class="lead mb-0 about-text" data-i18n="about.body">
+      Développeuse web full-stack, je transforme des besoins métiers en solutions concrètes, performantes et esthétiques.
+      Mon parcours en comptabilité m’a appris la précision et l’organisation, des qualités que j’applique aujourd’hui
+      dans la conception d’applications fiables, structurées et centrées sur l’utilisateur
+    </p>
+
+  </div>
+</section>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences" class="py-5 reveal section-full section-bg">
+      <div class="container no-glass d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="text-center mb-5">
+          <h2 class="display-6 fw-bold mb-2" data-i18n="skills.title">Compétences</h2>
+          <p class="text-muted mb-0" data-i18n="skills.subtitle">Technos et outils utilisés dans mes projets.</p>
+        </div>
+
+        <div class="row g-4">
+
+
+           <!-- Back-End -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="skill-card rounded-4 shadow-sm h-100">
+              <div class="skill-head">
+                <h3 class="h4 mb-1 text-center" data-i18n="skills.back.title">Back-End</h3>
+                <div class="skill-divider mx-auto"></div>
+                <p class="text-muted small text-center mb-0" data-i18n="skills.back.subtitle">Serveur & données</p>
+              </div>
+              <div class="skill-body">
+                <span class="skill-chip">PHP</span>
+                <span class="skill-chip">Symfony</span>
+                <span class="skill-chip">MySQL</span>
+                <span class="skill-chip">C#</span>
+                <span class="skill-chip">.NET</span>
+                <span class="skill-chip">SQL</span>
+                <span class="skill-chip">Python</span>
+                <span class="skill-chip">Django</span>
+              </div>
+            </div>
+          </div>
+          <!-- Front-End -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="skill-card rounded-4 shadow-sm h-100">
+              <div class="skill-head">
+                <h3 class="h4 mb-1 text-center" data-i18n="skills.front.title">Front-End</h3>
+                <div class="skill-divider mx-auto"></div>
+                <p class="text-muted small text-center mb-0" data-i18n="skills.front.subtitle">UI & intégration</p>
+              </div>
+              <div class="skill-body">
+                <span class="skill-chip">HTML</span>
+                <span class="skill-chip">CSS</span>
+                <span class="skill-chip">JavaScript</span>
+                <span class="skill-chip">Bootstrap</span>
+                <span class="skill-chip">Responsive design</span>
+              </div>
+            </div>
+          </div>
+
+         
+
+          <!-- Outils -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="skill-card rounded-4 shadow-sm h-100">
+              <div class="skill-head">
+                <h3 class="h4 mb-1 text-center" data-i18n="skills.tools.title">Outils & API</h3>
+                <div class="skill-divider mx-auto"></div>
+                <p class="text-muted small text-center mb-0" data-i18n="skills.tools.subtitle">Dev & productivité</p>
+              </div>
+              <div class="skill-body">
+                <span class="skill-chip">Git / GitHub</span>
+                <span class="skill-chip">Composer</span>
+                <span class="skill-chip">Docker</span>
+                <span class="skill-chip">VS Code</span>
+                <span class="skill-chip">Figma</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJETS  -->
+    <!-- PROJETS  -->
+<section id="projets" class="py-5 reveal section-full section-bg">
+  <div class="container no-glass d-flex flex-column align-items-center justify-content-center text-center">
+    <div class="section-head text-center mb-4">
+      <div class="accent-bar mx-auto mb-3"></div>
+      <h2 class="h3 m-0" data-i18n="projects.title">Projets</h2>
+      <p class="text-muted small m-0" data-i18n="projects.subtitle">Sélection de réalisations</p>
+    </div>
+
+    <div class="row g-4 w-100">
+      <!--  Gestion de stock -->
+      <article class="col-md-4 reveal delay-1">
+        <div class="card h-100 text-start">
+
+          <!-- IMAGE DU PROJET -->
+          <div class="project-cover">
+            <img src="./assets/images/projets/gestion-stock.jpg"
+                 alt="Capture écran de l'application de gestion de stock">
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="h5" data-i18n="projects.stock.title">Gestion de stock</h3>
+            <div class="divider"></div>
+            <p class="mb-3" data-i18n="projects.stock.desc">
+              Mouvement de stock; CRUD produit; alertes seuil; tableau de bord...
+            </p>
+
+            <p class="tech-label" data-i18n="projects.tech">Technologies</p>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="skill-chip">PHP</span>
+              <span class="skill-chip">Symfony</span>
+              <span class="skill-chip">Doctrine</span>
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">Twig</span>
+              <span class="skill-chip">HTML</span>
+              <span class="skill-chip">CSS</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">Bootstrap</span>
+            </div>
+
+            <div class="link-row d-flex gap-2 mt-auto">
+              <a class="btn btn-sm btn-primary" href="#" target="_blank" rel="noopener" data-i18n="projects.cta.demo">Démo</a>
+              <a class="btn btn-sm btn-outline-secondary" href="#" target="_blank" rel="noopener" data-i18n="projects.cta.code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projet 2 -->
+      <article class="col-md-4 reveal delay-2">
+        <div class="card h-100 text-start">
+
+          <!-- IMAGE DU PROJET 2 -->
+          <div class="project-cover">
+            <img src="./assets/images/projets/projet-2.jpg"
+                 alt="Capture écran du projet 2">
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="h5" data-i18n="projects.p2.title">Projet 2</h3>
+            <div class="divider"></div>
+            <p class="mb-3" data-i18n="projects.p2.desc">
+              Description du projet 2.
+            </p>
+
+            <p class="tech-label" data-i18n="projects.tech">Technologies</p>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="skill-chip">PHP</span>
+              <span class="skill-chip">Symfony</span>
+              <span class="skill-chip">MySQL</span>
+            </div>
+
+            <div class="link-row d-flex gap-2 mt-auto">
+              <a class="btn btn-sm btn-primary" href="#" target="_blank" rel="noopener" data-i18n="projects.cta.demo">Démo</a>
+              <a class="btn btn-sm btn-outline-secondary" href="#" target="_blank" rel="noopener" data-i18n="projects.cta.code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projet 3 -->
+      <article class="col-md-4 reveal delay-3">
+        <div class="card h-100 text-start">
+
+          <!-- IMAGE DU PROJET 3 -->
+          <div class="project-cover">
+            <img src="./assets/images/projets/projet-3.jpg"
+                 alt="Capture écran du projet 3">
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="h5" data-i18n="projects.p3.title">Projet 3</h3>
+            <div class="divider"></div>
+            <p class="mb-3" data-i18n="projects.p3.desc">
+              Description du projet 3.
+            </p>
+
+            <p class="tech-label" data-i18n="projects.tech">Technologies</p>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="skill-chip">.NET</span>
+              <span class="skill-chip">C#</span>
+              <span class="skill-chip">SQL Server</span>
+            </div>
+
+            <div class="link-row d-flex gap-2 mt-auto">
+              <a class="btn btn-sm btn-primary" href="#" target="_blank" rel="noopener" data-i18n="projects.cta.demo">Démo</a>
+              <a class="btn btn-sm btn-outline-secondary" href="#" target="_blank" rel="noopener" data-i18n="projects.cta.code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+         
+
+    <!-- PARCOURS -->
+    <section id="parcours" class="py-5 reveal section-full section-bg">
+      <div class="container no-glass d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="section-head text-center mb-4">
+          <div class="accent-bar mx-auto mb-3"></div>
+          <h2 class="h3 m-0" data-i18n="path.title">Parcours</h2>
+          <p class="text-muted small m-0" data-i18n="path.subtitle">Expériences & diplômes</p>
+        </div>
+
+        <div class="row g-4 w-100">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title mb-3" data-i18n="path.exp.title">Expériences</h3>
+                <div class="timeline">
+                  <div class="t-item">
+                    <div class="t-dot"></div>
+                    <div>
+                      <strong data-i18n="path.exp.accounting.title">Comptabilité</strong>
+                      <div class="text-muted small" data-i18n="path.exp.accounting.desc">Gestion de dossiers A-Z, comptabilité & fiscalité</div>
+                    </div>
+                  </div>
+                  <div class="t-item">
+                    <div class="t-dot"></div>
+                    <div>
+                      <strong data-i18n="path.exp.webdev.title">Développement web</strong>
+                      <div class="text-muted small" data-i18n="path.exp.webdev.desc">Applications web, participation à un hackathon, développent de deux projets</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title mb-3" data-i18n="path.edu.title">Diplômes</h3>
+                <ul class="list-unstyled m-0">
+                  <li class="mb-2"><span class="badge-chip" data-i18n="path.edu.accounting">Comptabilité</span></li>
+                  <li class="mb-2"><span class="badge-chip" data-i18n="path.edu.fullstack">Développement web full stack</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="py-5 reveal section-full section-bg">
+      <div class="container no-glass d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="section-head text-center mb-4">
+          <div class="accent-bar mx-auto mb-3"></div>
+          <h2 class="h3 m-0" data-i18n="cv.title">CV</h2>
+          <p class="text-muted small m-0" data-i18n="cv.subtitle">Disponible en Français et Néerlandais</p>
+        </div>
+
+        <div class="row justify-content-center w-100">
+          <div class="col-12 col-md-10 col-lg-8 col-xl-9">
+            <div class="card text-center">
+              <div class="card-body">
+                <h3 class="h5 mb-3" data-i18n="cv.role">Développeuse Web Full-Stack Junior</h3>
+                <a class="btn btn-primary px-4 py-2" href="./assets/cv/Karmous_Orsula_CV.pdf" download data-i18n="cv.download">
+                  Télécharger mon CV (PDF)
+                </a>
+                <p class="text-muted mt-3 small mb-0" data-i18n="cv.other">Autres versions sur demande.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5 reveal section-full section-bg">
+      <div class="container no-glass d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="section-head text-center mb-4">
+          <div class="accent-bar mx-auto mb-3"></div>
+            <div class="k-icon mb-2"><i class="fa fa-user"></i></div>
+
+          <h2 class="h3 m-0" data-i18n="contact.title">Contactez-moi</h2>
+          <p class="text-muted small m-0" data-i18n="contact.subtitle">Ouverte aux opportunités de collaboration.</p>
+        </div>
+
+        <div class="card mx-auto" style="max-width:560px">
+          <div class="card-body text-center w-100">
+            <div class="d-flex justify-content-center mt-2 gap-2">
+              <a class="social-btn" href="mailto:orsula.karmous@gmail.com"
+                 data-i18n-attr="aria-label:contact.emailLabel" aria-label="Email">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn" href="https://www.linkedin.com/in/orsula-karmous-b66083337/" target="_blank" rel="noopener"
+                 data-i18n-attr="aria-label:contact.linkedinLabel" aria-label="LinkedIn">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn" href="https://github.com/orsula25" target="_blank" rel="noopener"
+                 data-i18n-attr="aria-label:contact.githubLabel" aria-label="GitHub">
+                <i class="fa fa-github-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FABs -->
+  <a id="to-top" class="fab" href="#top" data-i18n-attr="aria-label:fab.top,title:fab.top" aria-label="Retour en haut" title="Retour en haut">
+    <i class="fa fa-arrow-up"></i>
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="mini-footer">
+      <span id="copyright"></span>
+    </div>
+  </footer>
+
+</body>
+</html>
