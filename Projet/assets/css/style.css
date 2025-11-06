@@ -375,7 +375,7 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
   border: 2px solid rgba(0,0,0,.10);          /* petit contour léger (optionnel) */
   box-shadow: none;                           /* plus d’ombre blanche */
 }
-}
+
 
 /* XL */
 @media (min-width: 1400px){
