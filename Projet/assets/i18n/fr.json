@@ -1,51 +1,104 @@
 {
-  "meta": { "title": "Karmous Orsula - Développement Web (Full Stack Junior)" },
-  "brand": { "name": "Karmous Orsula" },
+  "meta": {
+    "title": "Karmous Orsula - Développement Web (Full Stack Junior)"
+  },
+  "brand": {
+    "name": "Karmous Orsula"
+  },
   "nav": {
-    "about": "À propos", "skills": "Compétences", "projects": "Projets",
-    "path": "Parcours", "contact": "Contact", "toggleLabel": "Afficher le menu"
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "path": "Parcours",
+    "contact": "Contact",
+    "toggleLabel": "Afficher le menu"
   },
   "hero": {
     "title": "Développeuse Web Full-Stack Junior",
     "subtitle": "J’aime transformer des idées en solutions concrètes, en développant des fonctionnalités utiles qui améliorent réellement l’expérience des utilisateurs.",
-    "cta": { "projects": "Voir mes projets", "cv": "Télécharger mon CV" }
+    "cta": {
+      "projects": "Voir mes projets",
+      "cv": "Télécharger mon CV"
+    }
   },
   "about": {
     "title": "À propos",
     "tagline": "Curieuse, rigoureuse, orientée impact.",
-    "body": "Développeuse web full-stack, je transforme des besoins métiers en solutions concrètes, performantes et esthétiques. Mon parcours en comptabilité m’a appris la précision et l’organisation, des qualités que j’applique aujourd’hui dans la conception d’applications fiables, structurées et centrées sur l’utilisateur"
+    "body": "Développeuse web full-stack, je transforme des besoins métiers en solutions concrètes, performantes et esthétiques. Mon parcours en comptabilité m’a appris la précision et l’organisation, des qualités que j’applique aujourd’hui dans la conception d’applications fiables, structurées et centrées sur l’utilisateur."
   },
   "skills": {
-    "title": "Compétences", "subtitle": "Technos et outils utilisés dans mes projets.",
-    "front": { "title": "Front-End", "subtitle": "UI & intégrration" },
-    "back":  { "title": "Back-End",  "subtitle": "Serveur & données" },
-    "tools": { "title": "Outils & API", "subtitle": "Dev & productivité" }
+    "title": "Compétences",
+    "subtitle": "Technos et outils utilisés dans mes projets.",
+    "front": {
+      "title": "Front-End",
+      "subtitle": "UI & intégration"
+    },
+    "back": {
+      "title": "Back-End",
+      "subtitle": "Serveur & données"
+    },
+    "tools": {
+      "title": "Outils & API",
+      "subtitle": "Dev & productivité"
+    }
   },
   "projects": {
-    "title": "Projets", "subtitle": "Sélection de réalisations", "tech": "Technologies",
-    "cta": { "demo": "Démo", "code": "Code" },
-    "stock": { "title": "Gestion de stock", "desc": "Mouvement de stock; CRUD produit; alertes seuil; tableau de bord..." },
-    "p2":    { "title": "Projet 2", "desc": "Description du projet 2." },
-    "p3":    { "title": "Projet 3", "desc": "Description du projet 3." }
+    "title": "Projets",
+    "subtitle": "Sélection de réalisations",
+    "tech": "Technologies",
+    "cta": {
+      "demo": "Démo",
+      "code": "Code"
+    },
+    "stock": {
+      "title": "Logix G-Stock",
+      "desc": "Suivi des stocks, commandes et réapprovisionnement automatique pour les commerçants."
+    },
+    "p2": {
+      "title": "Expense Tracker",
+      "desc": "Application claire et visuelle de suivi des dépenses et revenus, avec tableaux et graphiques pour une vue instantanée de sa santé financière."
+    },
+    "p3": {
+      "title": "Maman_budget",
+      "desc": "Application web pour faciliter la gestion de budget des mamans solos."
+    }
   },
   "path": {
-    "title": "Parcours", "subtitle": "Expériences & diplômes",
+    "title": "Parcours",
+    "subtitle": "Expériences & diplômes",
     "exp": {
       "title": "Expériences",
-      "accounting": { "title": "Comptabilité", "desc": "Gestion de dossiers A-Z, comptabilité & fiscalité" },
-      "webdev":     { "title": "Développement web", "desc": "Applications web, participation à un hackathon, développent de deux projets" }
+      "accounting": {
+        "title": "Comptabilité",
+        "desc": "Gestion complète de dossiers de A à Z : établissement de bilans, optimisation fiscale, gestion d’équipe et mentorat de stagiaires, avec un rôle axé sur la coordination, le leadership et le développement des compétences."
+      },
+      "webdev": {
+        "title": "Développement web",
+        "desc": "Création de quatre applications web, dont une conçue durant un hackathon stimulant alliant créativité, esprit d’équipe et innovation."
+      }
     },
-    "edu": { "title": "Diplômes", "accounting": "Comptabilité", "fullstack": "Développement web full stack" }
+    "edu": {
+      "title": "Diplômes",
+      "fullstack": "Développement web full stack",
+      "accounting": "Comptabilité",
+      "cess": "CESS"
+    }
   },
   "cv": {
-    "title": "CV", "subtitle": "Disponible en Français et Néerlandais",
+    "title": "CV",
+    "subtitle": "Disponible en Français et Néerlandais",
     "role": "Développeuse Web Full-Stack Junior",
     "download": "Télécharger mon CV (PDF)",
     "other": "Autres versions sur demande."
   },
   "contact": {
-    "title": "Contactez-moi", "subtitle": "Ouverte aux opportunités de collaboration.",
-    "emailLabel": "Email", "linkedinLabel": "LinkedIn", "githubLabel": "GitHub"
+    "title": "Contactez-moi",
+    "subtitle": "Ouverte aux opportunités de collaboration.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub"
   },
-  "fab": { "top": "Retour en haut" }
+  "fab": {
+    "top": "Retour en haut"
+  }
 }

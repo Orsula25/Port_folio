@@ -1,4 +1,4 @@
-// ===== Copyright dynamique + reveal + navbar =====
+// Copyright dynamique + reveal + navbar 
 document.addEventListener('DOMContentLoaded', () => {
   const c = document.getElementById('copyright');
   if (c) c.textContent = `© ${new Date().getFullYear()} Karmous Orsula - tous droits reservés`;
@@ -22,7 +22,7 @@ const onScrollHeader = () => {
 onScrollHeader();
 window.addEventListener('scroll', onScrollHeader, { passive: true });
 
-// ===== Formes géométriques animées =====
+// Formes géométriques animées 
 (() => {
   const container = document.querySelector('.floating-shapes');
   if (!container) return;
@@ -77,13 +77,6 @@ window.addEventListener('scroll', onScrollHeader, { passive: true });
 
     const r = Math.random();
     (r < 0.4 ? layer1 : r < 0.75 ? layer2 : layer3).appendChild(el);
-
-    el.addEventListener('animationiteration', () => {
-      el.style.left = `${Math.random() * 100}%`;
-      el.style.animationDuration = `${8 + Math.random() * 14}s`;
-      el.style.setProperty('--drift', `${Math.random() * 30 - 15}px`);
-      el.style.opacity = (0.28 + Math.random() * 0.4).toFixed(2);
-    });
 
     el.style.opacity = (0.35 + Math.random() * 0.45).toFixed(2);
     return el;

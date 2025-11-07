@@ -1,4 +1,4 @@
-/* =================== PALETTE & BASE =================== */
+/* PALETTE & BASE */
 :root{
   --muted:#55627a;
   --accent:#2aa198;
@@ -20,22 +20,37 @@ body, p, h1, h2, h3 {
 html{
   scroll-behavior:smooth;
   scroll-padding-top:var(--navH);
-  scroll-snap-type: y proximity;
 }
-section{ scroll-margin-top:var(--navH); }
+
+/* le scroll-snap se fait sur tout le document */
+
+html,body{
+  scroll-snap-type: y mandatory;
+}
+
+/* chaque section “prend” le scroll */
+.section-full{
+  min-height: calc(100svh - var(--navH));
+display:flex;
+align-items:center;
+scroll-snap-align: start;
+scroll-snap-stop: always;
+}
+
 
 body{
   color:var(--ink);
   font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   line-height:1.6;
   background: var(--surface); /* pas d'image globale */
+  margin:0
 }
 
 /* Titre et texte */
 h1,h2,h3{ font-family:'Poppins', sans-serif; letter-spacing:.5px; }
 p{ font-family:'Inter', sans-serif; line-height:1.6; }
 
-/* ====== Sections plein écran ====== */
+/* Sections plein écran */
 .section-full{
   min-height: calc(100svh - var(--navH));
   display:flex;
@@ -70,7 +85,7 @@ p{ font-family:'Inter', sans-serif; line-height:1.6; }
   .hero-lead{ font-size: 1.25rem; }
 }
 
-/* ====== Layout / header / nav ====== */
+/* Layout / header / nav */
 header.sticky-top{ box-shadow:0 1px 8px rgba(0,0,0,.06); }
 .navbar .nav-link{
   color:var(--ink); opacity:.85; position:relative; padding:.35rem;
@@ -81,7 +96,7 @@ header.sticky-top{ box-shadow:0 1px 8px rgba(0,0,0,.06); }
   color:var(--accent); opacity:.85;
 }
 
-/* ====== Liens & boutons ====== */
+/* Liens & boutons */
 a{ color:var(--accent); }
 a:hover{ color:var(--accent-dark); }
 
@@ -123,7 +138,7 @@ a:hover{ color:var(--accent-dark); }
 .btn-cta:hover::after{ left:150%; }
 @keyframes breath{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
 
-/* ====== Social & FAB ====== */
+/* Social & FAB */
 .social-btn{
   width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center;
   background:var(--accent); color:#fff; text-decoration:none; border-radius:30%;
@@ -139,7 +154,7 @@ a:hover{ color:var(--accent-dark); }
 #to-top{ bottom:80px; }
 .fab:hover{ transform:translateY(-3px); }
 
-/* ====== Section-head ====== */
+/* Section-head */
 .section-head .accent-bar{
   width:72px; height:6px; border-radius:999px;
   background:linear-gradient(90deg,var(--accent),var(--accent-dark));
@@ -147,7 +162,7 @@ a:hover{ color:var(--accent-dark); }
   display: none; /* tu l’as désactivée partout */
 }
 
-/* ====== FOOTER ====== */
+/* FOOTER */
 .mini-footer{
   display:flex; justify-content:center; align-items:center; gap:.5rem;
   text-align:center; padding:14px 10px; color:#0f172a;
@@ -155,7 +170,7 @@ a:hover{ color:var(--accent-dark); }
   font-size:.95rem;
 }
 
-/* ====== Révélation au scroll ====== */
+/* Révélation au scroll */
 .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
 .reveal.reveal-visible{ opacity:1; transform:none; }
 .reveal.delay-1{ transition-delay:.06s; } .reveal.delay-2{ transition-delay:.12s; } .reveal.delay-3{ transition-delay:.18s; }
@@ -163,45 +178,48 @@ a:hover{ color:var(--accent-dark); }
   .reveal, .reveal.reveal-visible{ opacity:1; transform:none; transition:none; }
 }
 
-/* =================== COMPÉTENCES =================== */
+/* COMPÉTENCES */
 #competences .skill-card{
-  background:#e3f1e5; border:1px solid rgba(0,0,0,.06);
+  background:white; border:1px solid rgba(0,0,0,.06);
   transition:transform .15s ease, box-shadow .15s ease;
 }
 #competences .skill-card:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.10); }
 #competences .skill-head{ padding:1.25rem 1.25rem .75rem; background:rgba(0,0,0,.02); }
 #competences .skill-divider{ height:2px; width:150px; background:rgba(0,0,0,.08); border-radius:2px; margin:.5rem 0 .75rem; }
-#competences .skill-body{ padding:1rem 1.25rem 1.25rem; display:flex; flex-wrap:wrap; gap:.5rem; }
+#competences .skill-body{ padding:1rem 1.25rem 1.25rem; display:flex; flex-wrap:wrap; gap:.5rem; justify-content: center; }
 
 #competences .skill-chip,
 .badge-chip,
 #projets .skill-chip{
   display:inline-block; padding:.38rem .7rem; font-size:.9rem; font-weight:600;
   background:#f6f8fb; border:1px solid rgba(0,0,0,.08); color:#1a1a1a; border-radius:999px; white-space:nowrap;
+  
+
 }
 #competences .skill-chip:hover{ background:#6e9e98ae; transform:translateY(-1px); }
 
-/* === PROJETS (mêmes styles cartes claires) === */
+/* PROJETS (mêmes styles cartes claires) */
 #projets .card{
-  background:#e3f1e5 !important;
-  border:1px solid rgba(0,0,0,.06) !important;
-  border-radius:16px !important;
-  box-shadow:0 8px 22px rgba(2,6,23,0.08) !important;
-  color:var(--ink) !important;
+  background:white;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;
+  box-shadow:0 8px 22px rgba(2,6,23,0.08);
+  color:var(--ink);
+  text-align: center;
 }
 #projets .card:hover{
   transform:translateY(-2px);
-  box-shadow:0 14px 28px rgba(2,6,23,.12) !important;
-  border-color:rgba(0,0,0,.10) !important;
+  box-shadow:0 14px 28px rgba(2,6,23,.12) ;
+  border-color:rgba(0,0,0,.10) ;
 }
 #projets .divider{ height:1px; background:rgba(0,0,0,.08); margin:.6rem 0 1rem; }
 #projets .skill-chip{
-  background:#f6f8fb !important;
-  border:1px solid rgba(0,0,0,.08) !important;
-  color:#1a1a1a !important;
+  background:#f6f8fb ;
+  border:1px solid rgba(0,0,0,.08) ;
+  color:#1a1a1a ;
 }
 
-/* =================== PARCOURS (timeline) =================== */
+/* PARCOURS (timeline) */
 .timeline{ position:relative; margin-left:.25rem; padding-left:1rem; }
 .timeline::before{
   content:""; position:absolute; left:.35rem; top:.25rem; bottom:.25rem;
@@ -215,7 +233,7 @@ a:hover{ color:var(--accent-dark); }
   background:var(--accent); box-shadow:0 0 0 4px rgba(42,161,152,.22); flex:0 0 12px;
 }
 
-/* =================== CONTACT =================== */
+/* CONTACT */
 .k-icon{
   width:44px; height:44px; border-radius:50%;
   display:inline-flex; align-items:center; justify-content:center;
@@ -223,7 +241,7 @@ a:hover{ color:var(--accent-dark); }
   box-shadow:0 8px 18px rgba(42,161,152,.25);
 }
 
-/* =================== FORMES FLOTTANTES =================== */
+/* FORMES FLOTTANTES */
 .floating-shapes{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:1; }
 .shape{ position:absolute; transform-origin:center; animation:floatUp linear infinite; will-change:transform, opacity; }
 .layer-1 .shape{ opacity:.55; filter:blur(.3px) drop-shadow(0 6px 14px rgba(42,161,152,.35)); }
@@ -242,25 +260,25 @@ a:hover{ color:var(--accent-dark); }
 /* Garantir le contenu au-dessus des formes */
 header, footer, main > section > .container{ position:relative; z-index:2; }
 
-/* ====== Cartes (look clair, pas de verre global) ====== */
+/* Cartes (look clair, pas de verre global) */
 .card{
-  background: var(--panel) !important;
-  border: 1px solid var(--panel-border) !important;
-  box-shadow: var(--panel-shadow) !important;
+  background: white ;
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
   color: var(--ink);
 }
 .list-group-item{
-  background: var(--panel) !important;
-  border-color: var(--panel-border) !important;
+  background: white;
+  border-color: var(--panel-border);
 }
 
-/* ====== Responsive doux ====== */
+/* Responsive doux */
 @media (max-width: 575.98px){
   .social-btn{ width:36px; height:36px; margin:8px; }
   .fab{ right:16px; bottom:84px; }
 }
 
-/* ====== FOND VERT POUR TOUTES LES SECTIONS ====== */
+/* FOND VERT POUR TOUTES LES SECTIONS */
 .section-bg{
   position: relative;
   overflow: hidden;
@@ -271,9 +289,9 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
   background: linear-gradient(135deg, #d2efe5, #b6e0d3);
 }
 
-/* ===== Avatar À propos ===== */
+/* Avatar À propos */
 .about-avatar{
-  width: 144px; height: 144px;
+  width: 350px; height: 350px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid rgba(42,161,152,.35);   /* rappelle l’accent */
@@ -285,7 +303,7 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
 }
 
 /* À propos : plus de barre verte sous le titre */
-#a-propos .section-head .accent-bar{ display:none !important; }
+#a-propos .section-head .accent-bar{ display:none; }
 
 /* À propos : texte centré, largeur confortable, sans “carte” */
 .about-text{
@@ -293,8 +311,8 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
   margin-inline: auto;
 }
 
-/* ===== PARCOURS — élargir, agrandir contenu ===== */
-/* =================== PARCOURS =================== */
+
+
 
 /* Largeur globale de la section */
 #parcours .container{
@@ -309,21 +327,21 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
 
 /* Cartes générales de la section Parcours */
 #parcours .card{
-  border-radius: 18px !important;
+  border-radius: 18px ;
 }
 
 /* Carte “Expériences” (gauche) : on garde le panel */
 #parcours .col-md-6:first-child .card{
-  background: var(--panel) !important;
-  border: 1px solid var(--panel-border) !important;
-  box-shadow: var(--panel-shadow) !important;
+  background: white;
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
 }
 
 /* Carte “Diplômes” (droite) : pas de fond, pas de bordure, pas d’ombre */
 #parcours .col-md-6:last-child .card{
-  background: var(--panel) !important;
-  border: 1px solid var(--panel-border) !important;
-  box-shadow: var(--panel-shadow) !important;
+  background: white;
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
 }
 
 #parcours .card-body{
@@ -341,7 +359,7 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
   font-size: clamp(.98rem, .25vw + .9rem, 1.05rem);
 }
 
-/* ===== Timeline (sans points verts) ===== */
+/* Timeline (sans points verts) */
 #parcours .timeline{
   position: relative;
   margin: 0;
@@ -367,6 +385,7 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
 /* Badges "Diplômes" */
 #parcours .badge-chip{
   display: inline-block;
+  
   padding: .55rem .95rem;
   font-size: 1rem;
   font-weight: 600;
@@ -388,7 +407,7 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
 }
 
 
-/* ===== CV ===== */
+/* CV */
 #cv .container{
   max-width: 960px;
 }
@@ -421,7 +440,7 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
 }
 
 
-/* ===== CONTACT — agrandir la carte + icônes ===== */
+/* CONTACT — agrandir la carte + icônes */
 #contact .container{
   max-width: 960px;
 }
@@ -452,3 +471,87 @@ header, footer, main > section > .container{ position:relative; z-index:2; }
     margin: 8px;
   }
 }
+
+/* PARCOURS – aligner proprement le texte des expériences */
+#parcours .card-body{
+  text-align: left;          /* on enlève le centrage hérité du container */
+}
+
+#parcours .card-title{
+  text-align: center;        /* mais on garde le titre "Expériences" centré */
+}
+
+/* optionnel : réduire un peu l'espace entre les deux expériences */
+#parcours .t-item{
+  margin-bottom: .6rem;
+}
+
+
+.project-cover{
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+.project-cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+ 
+}
+
+
+/* Liste des diplômes (accordion léger) */
+.diplomes-list{
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Chaque bloc <details> */
+.diplome{
+  width: 100%;
+}
+
+/* Enlever le marqueur par défaut et styliser le summary */
+.diplome summary{
+  list-style: none;
+  cursor: pointer;
+}
+
+/* Supprimer le chevron par défaut sur WebKit */
+.diplome summary::-webkit-details-marker{
+  display: none;
+}
+
+/* Badge clickable */
+.diplome summary .badge-chip{
+  display: inline-block;
+  padding: .55rem .95rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: #f6f8fb;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 4px 10px rgba(15,23,42,.05);
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.diplome[open] summary .badge-chip{
+  background: rgba(42,161,152,.08);
+  border-color: rgba(42,161,152,.35);
+  box-shadow: 0 6px 14px rgba(42,161,152,.20);
+}
+
+/* Texte de description */
+.diplome-desc{
+  margin: .5rem 0 0 0.3rem;
+  font-size: .95rem;
+  color: var(--muted);
+  max-width: 100%;
+}
+
