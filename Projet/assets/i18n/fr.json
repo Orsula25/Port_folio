@@ -59,8 +59,8 @@
       "desc": "Application claire et visuelle de suivi des dépenses et revenus, avec tableaux et graphiques pour une vue instantanée de sa santé financière."
     },
     "p3": {
-      "title": "Maman_budget",
-      "desc": "Application web pour faciliter la gestion de budget des mamans solos."
+      "title": "budgetMaman",
+      "desc": "Projet hackathon : simulation budgétaire où l’utilisateur vit les choix financiers d’une maman solo."
     }
   },
   "path": {
@@ -80,8 +80,11 @@
     "edu": {
       "title": "Diplômes",
       "fullstack": "Développement web full stack",
+      "fullstackDesc": "Formation axée sur la création d’applications web complètes (front & back), avec une attention particulière à la qualité du code, aux bonnes pratiques et à l’expérience utilisateur.",
       "accounting": "Comptabilité",
-      "cess": "CESS"
+      "accountingDesc": "Études en comptabilité générale et analytique, gestion de dossiers de A à Z, fiscalité et analyse financière, développant rigueur et sens du détail.",
+      "cess": "CESS",
+      "cessDesc": "Certificat d’enseignement secondaire supérieur, en diplôme de gestion et d’aide comptable."
     }
   },
   "cv": {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Karmous Orsula - Webontwikkeling (Junior Full Stack)"
+    "title": "Karmous Orsula - Webontwikkeling (Full Stack Junior)"
   },
   "brand": {
     "name": "Karmous Orsula"
@@ -14,32 +14,32 @@
     "toggleLabel": "Menu openen"
   },
   "hero": {
-    "title": "Webontwikkeling — Junior Full Stack",
-    "subtitle": "Ik zet ideeën om in concrete oplossingen en bouw nuttige functies die de gebruikerservaring echt verbeteren.",
+    "title": "Junior Full-Stack Webontwikkelaar",
+    "subtitle": "Ik zet ideeën om in concrete oplossingen door nuttige functionaliteiten te bouwen die de gebruikerservaring echt verbeteren.",
     "cta": {
       "projects": "Bekijk mijn projecten",
-      "cv": "Mijn CV downloaden"
+      "cv": "Download mijn cv"
     }
   },
   "about": {
     "title": "Over mij",
     "tagline": "Nieuwsgierig, nauwkeurig, impactgericht.",
-    "body": "Als full-stack webontwikkelaar vertaal ik businessbehoeften naar concrete, performante en esthetische oplossingen. Mijn achtergrond in de boekhouding heeft me precisie en organisatie bijgebracht, kwaliteiten die ik nu inzet bij het ontwerpen van betrouwbare, gestructureerde en gebruiksvriendelijke applicaties."
+    "body": "Als full-stack webontwikkelaar vertaal ik business-behoeften naar concrete, performante en esthetische oplossingen. Mijn achtergrond in boekhouding leerde me precisie en organisatie, kwaliteiten die ik gebruik om betrouwbare, goed gestructureerde en gebruiksvriendelijke applicaties te bouwen."
   },
   "skills": {
     "title": "Vaardigheden",
-    "subtitle": "Technologieën en tools in mijn projecten.",
+    "subtitle": "Technologieën en tools die ik in mijn projecten gebruik.",
     "front": {
-      "title": "Front-End",
+      "title": "Front-end",
       "subtitle": "UI & integratie"
     },
     "back": {
-      "title": "Back-End",
+      "title": "Back-end",
       "subtitle": "Server & data"
     },
     "tools": {
-      "title": "Tools & API",
-      "subtitle": "Dev & productiviteit"
+      "title": "Tools & API’s",
+      "subtitle": "Ontwikkeling & productiviteit"
     }
   },
   "projects": {
@@ -52,48 +52,51 @@
     },
     "stock": {
       "title": "Logix G-Stock",
-      "desc": "Toepassing voor het opvolgen van voorraden en bestellingen, met automatische herbevoorrading voor handelaars."
+      "desc": "Opvolging van voorraad, bestellingen en automatische herbevoorrading voor handelaars."
     },
     "p2": {
       "title": "Expense Tracker",
-      "desc": "Een overzichtelijke en visuele applicatie om uitgaven en inkomsten te volgen, met tabellen en grafieken voor een duidelijk financieel inzicht."
+      "desc": "Heldere, visuele applicatie voor het opvolgen van uitgaven en inkomsten, met tabellen en grafieken voor een direct zicht op je financiële gezondheid."
     },
     "p3": {
-      "title": "Maman_budget",
-      "desc": "Webapplicatie die het budgetbeheer voor alleenstaande moeders vereenvoudigt."
+      "title": "budgetMaman",
+      "desc": "Hackathonproject: budgetsimulatie waarin de gebruiker de financiële keuzes van een alleenstaande moeder beleeft."
     }
   },
   "path": {
     "title": "Traject",
-    "subtitle": "Ervaring & diploma’s",
+    "subtitle": "Ervaringen & diploma’s",
     "exp": {
-      "title": "Ervaring",
+      "title": "Ervaringen",
       "accounting": {
         "title": "Boekhouding",
-        "desc": "Volledige dossieropvolging van A tot Z: opstellen van balansen, fiscale optimalisatie, teambeheer en mentoring van stagiairs, met focus op coördinatie, leiderschap en competentieontwikkeling."
+        "desc": "Volledige A-Z dossieropvolging: opstellen van balansen, fiscale optimalisatie, teambeheer en begeleiding van stagiairs, met een rol gericht op coördinatie, leiderschap en skillontwikkeling."
       },
       "webdev": {
         "title": "Webontwikkeling",
-        "desc": "Ontwikkeling van vier webapplicaties, waaronder één gerealiseerd tijdens een hackathon rond creativiteit, teamwork en innovatie."
+        "desc": "Ontwikkeling van vier webapplicaties, waaronder één tijdens een hackathon die creativiteit, teamspirit en innovatie combineerde."
       }
     },
     "edu": {
       "title": "Diploma’s",
       "fullstack": "Full-stack webontwikkeling",
+      "fullstackDesc": "Opleiding gericht op het bouwen van volledige webapplicaties (front & back), met focus op codekwaliteit, best practices en gebruikerservaring.",
       "accounting": "Boekhouding",
-      "cess": "CESS"
+      "accountingDesc": "Algemene en analytische boekhouding, A-Z dossierbeheer, fiscaliteit en financiële analyse — ontwikkeling van nauwkeurigheid en oog voor detail.",
+      "cess": "CESS",
+      "cessDesc": "Diploma secundair onderwijs, richting beheer en hulpboekhouding."
     }
   },
   "cv": {
     "title": "CV",
     "subtitle": "Beschikbaar in het Frans en Nederlands",
     "role": "Junior Full-Stack Webontwikkelaar",
-    "download": "Mijn CV downloaden (PDF)",
+    "download": "Download mijn cv (PDF)",
     "other": "Andere versies op aanvraag."
   },
   "contact": {
     "title": "Contacteer mij",
-    "subtitle": "Open voor samenwerkingskansen.",
+    "subtitle": "Open voor samenwerkingen.",
     "emailLabel": "E-mail",
     "linkedinLabel": "LinkedIn",
     "githubLabel": "GitHub"

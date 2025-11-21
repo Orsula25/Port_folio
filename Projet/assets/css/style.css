@@ -1,105 +1,130 @@
-/* PALETTE & BASE */
+/* Palette & variables globales */
 :root{
   --muted:#55627a;
   --accent:#2aa198;
   --accent-dark:#1f7f79;
   --surface:#ffffff;
-  --line:rgba(15,23,42,0.08);
+  --line:rgba(0,0,0,0.08);
   --panel:#e3f1e5;
   --panel-border:rgba(0,0,0,.06);
   --panel-shadow:0 8px 22px rgba(2,6,23,0.08);
-  --navH:64px; /* hauteur approx, MAJ via JS possible */
-
-  --ink: #0d2239;
+  --navH:64px; /* hauteur approximative de la navbar */
+  --ink:#0d2239; /* couleur principale du texte */
 }
 
-body, p, h1, h2, h3 {
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+/* Typographie de base */
+body, p, h1, h2, h3{
+  text-shadow:0 1px 2px rgba(0,0,0,0.2);
 }
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:var(--navH);
-}
-
-/* le scroll-snap se fait sur tout le document */
-
-html,body{
-  scroll-snap-type: y mandatory;
-}
-
-/* chaque section “prend” le scroll */
-.section-full{
-  min-height: calc(100svh - var(--navH));
-display:flex;
-align-items:center;
-scroll-snap-align: start;
-scroll-snap-stop: always;
-}
-
 
 body{
   color:var(--ink);
   font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   line-height:1.6;
-  background: var(--surface); /* pas d'image globale */
-  margin:0
+  background:var(--surface);
+  margin:0;
 }
 
-/* Titre et texte */
-h1,h2,h3{ font-family:'Poppins', sans-serif; letter-spacing:.5px; }
-p{ font-family:'Inter', sans-serif; line-height:1.6; }
+h1,h2,h3{
+  font-family:'Poppins', sans-serif;
+  letter-spacing:.5px;
+}
+p{
+  font-family:'Inter', sans-serif;
+  line-height:1.6;
+}
+
+/* Comportement du scroll */
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:var(--navH); /* compense la navbar pour les ancres */
+}
+
+/* Scroll-snap sur les sections pleine hauteur */
+html,body{
+  scroll-snap-type:y mandatory;
+}
 
 /* Sections plein écran */
 .section-full{
-  min-height: calc(100svh - var(--navH));
+  min-height:calc(100svh - var(--navH));
   display:flex;
   align-items:center;
-  scroll-snap-align: start;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
 }
 
-/* HERO */
+/* marge responsive pour le contenu */
+/* Ajoute une marge horizontale sur les petits / moyens écrans */
+main > section > .container{
+  padding-inline:1.5rem;
+}
+
+/* Sur les grands écrans, on laisse Bootstrap gérer les marges */
+@media (min-width: 992px){
+  main > section > .container{
+    padding-inline:0;
+  }
+}
+
+/* Hero */
 .hero{
-  position: relative;
-  overflow: hidden;
-  /* fond vert très clair pour le hero */
-  background: linear-gradient(135deg, #e6f7f1, #c8ede0);
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#e6f7f1,#c8ede0); /* vert très clair */
 }
 
+/* Container du hero sans effet de carte */
 .hero > .container.no-glass{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  padding: 0;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  padding:0;
 }
 
-.hero-lead{ 
-  max-width: 1100px; 
-  margin-inline: auto;
+.hero-lead{
+  max-width:1100px;
+  margin-inline:auto;
 }
 
 @media (min-width: 992px){
-  .hero h1{ font-size: clamp(2rem, 2.5vw + 1rem, 3rem); }
-  .hero-lead{ font-size: 1.25rem; }
+  .hero h1{
+    font-size:clamp(2rem,2.5vw + 1rem,3rem);
+  }
+  .hero-lead{
+    font-size:1.25rem;
+  }
 }
 
-/* Layout / header / nav */
-header.sticky-top{ box-shadow:0 1px 8px rgba(0,0,0,.06); }
+/* Header / Navbar */
+header.sticky-top{
+  box-shadow:0 1px 8px rgba(0,0,0,.06);
+}
+
 .navbar .nav-link{
-  color:var(--ink); opacity:.85; position:relative; padding:.35rem;
+  color:var(--ink);
+  opacity:.85;
+  position:relative;
+  padding:.35rem;
   text-decoration:none !important;
 }
 .navbar .nav-link:hover,
 .navbar .nav-link:focus{
-  color:var(--accent); opacity:.85;
+  color:var(--accent);
+  opacity:.85;
 }
 
 /* Liens & boutons */
-a{ color:var(--accent); }
-a:hover{ color:var(--accent-dark); }
+a{
+  color:var(--accent);
+}
+a:hover{
+  color:var(--accent-dark);
+}
 
+/* Bouton principal Bootstrap personnalisé */
 .btn-primary{
   --bs-btn-bg:var(--accent);
   --bs-btn-border-color:var(--accent);
@@ -112,6 +137,8 @@ a:hover{ color:var(--accent-dark); }
   transition:transform .12s ease, box-shadow .12s ease;
   box-shadow:0 6px 16px rgba(42,161,152,.18);
 }
+
+/* Bouton outline secondaire */
 .btn-outline-secondary{
   --bs-btn-color:#0f172a;
   --bs-btn-border-color:rgba(15,23,42,.35);
@@ -121,437 +148,615 @@ a:hover{ color:var(--accent-dark); }
   backdrop-filter:saturate(1.1);
 }
 
-/* CTA animation légère */
+/* Bouton CTA avec animation douce */
 .btn-cta{
-  position:relative; overflow:hidden; padding:.7rem 1.25rem; border-radius:.6rem; letter-spacing:.2px;
+  position:relative;
+  overflow:hidden;
+  padding:.7rem 1.25rem;
+  border-radius:.6rem;
+  letter-spacing:.2px;
   transition:transform .12s ease, box-shadow .12s ease;
   box-shadow:0 6px 16px rgba(42,161,152,.18);
   animation:breath 4s ease-in-out infinite;
 }
-.btn-cta:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(31,127,121,.22); }
+.btn-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px rgba(31,127,121,.22);
+}
 .btn-cta::after{
-  content:""; position:absolute; top:0; left:-150%;
-  width:120%; height:100%;
-  background:linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
-  transform:skewX(-20deg); transition:left .6s ease;
+  content:"";
+  position:absolute;
+  top:0;
+  left:-150%;
+  width:120%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:skewX(-20deg);
+  transition:left .6s ease;
 }
-.btn-cta:hover::after{ left:150%; }
-@keyframes breath{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
+.btn-cta:hover::after{
+  left:150%;
+}
 
-/* Social & FAB */
+@keyframes breath{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-2px);}
+}
+
+/* Boutons sociaux & FAB */
 .social-btn{
-  width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center;
-  background:var(--accent); color:#fff; text-decoration:none; border-radius:30%;
-  margin:10px; transition:.2s;
+  width:40px;
+  height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:30%;
+  margin:10px;
+  transition:.2s;
 }
-.social-btn:hover{ background:var(--accent-dark); transform:translateY(-3px); }
+.social-btn:hover{
+  background:var(--accent-dark);
+  transform:translateY(-3px);
+}
+
 .fab{
-  width:40px; height:40px; position:fixed; right:50px; border-radius:30%;
-  display:inline-flex; align-items:center; justify-content:center;
-  background:var(--accent); color:#fff; text-decoration:none;
-  box-shadow:0 10px 24px rgba(0,0,0,.25); transition:.2s; z-index:1050;
+  width:40px;
+  height:40px;
+  position:fixed;
+  right:50px;
+  border-radius:30%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+  transition:.2s;
+  z-index:1050;
 }
-#to-top{ bottom:80px; }
-.fab:hover{ transform:translateY(-3px); }
-
-/* Section-head */
-.section-head .accent-bar{
-  width:72px; height:6px; border-radius:999px;
-  background:linear-gradient(90deg,var(--accent),var(--accent-dark));
-  box-shadow:0 6px 16px rgba(42,161,152,.25);
-  display: none; /* tu l’as désactivée partout */
+#to-top{
+  bottom:80px;
+}
+.fab:hover{
+  transform:translateY(-3px);
 }
 
-/* FOOTER */
+/* Version mobile pour les boutons sociaux et FAB */
+@media (max-width: 575.98px){
+  .social-btn{
+    width:36px;
+    height:36px;
+    margin:8px;
+  }
+  .fab{
+    right:16px;
+    bottom:84px;
+  }
+}
+
+
+/* Footer / copyright */
+/* La barre est visible, le texte est rempli via JS dans #copyright */
 .mini-footer{
-  display:flex; justify-content:center; align-items:center; gap:.5rem;
-  text-align:center; padding:14px 10px; color:#0f172a;
-  background:rgba(255,255,255,.95); border-top:1px solid var(--line);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.5rem;
+  text-align:center;
+  padding:14px 10px;
+  color:#0f172a;
+  background:rgba(255,255,255,.95);
+  border-top:1px solid var(--line);
   font-size:.95rem;
 }
 
-/* Révélation au scroll */
-.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
-.reveal.reveal-visible{ opacity:1; transform:none; }
-.reveal.delay-1{ transition-delay:.06s; } .reveal.delay-2{ transition-delay:.12s; } .reveal.delay-3{ transition-delay:.18s; }
+/* Effet de révélation au scroll */
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.reveal-visible{
+  opacity:1;
+  transform:none;
+}
+.reveal.delay-1{transition-delay:.06s;}
+.reveal.delay-2{transition-delay:.12s;}
+.reveal.delay-3{transition-delay:.18s;}
+
 @media (prefers-reduced-motion:reduce){
-  .reveal, .reveal.reveal-visible{ opacity:1; transform:none; transition:none; }
+  .reveal,
+  .reveal.reveal-visible{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
 }
 
-/* COMPÉTENCES */
+/* Cartes génériques */
+.card{
+  background:white;
+  border:1px solid var(--panel-border);
+  box-shadow:var(--panel-shadow);
+  color:var(--ink);
+}
+.list-group-item{
+  background:white;
+  border-color:var(--panel-border);
+}
+
+/* Fond des sections (vert clair) */
+.section-bg{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#e6f7f1,#c8ede0);
+}
+.section-bg:nth-of-type(even){
+  background:linear-gradient(135deg,#d2efe5,#b6e0d3);
+}
+
+/* À propos (avatar + texte) */
+.about-avatar{
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid rgba(42,161,152,.35);
+  box-shadow:0 8px 22px rgba(2,6,23,.12);
+  background:#fff;
+}
+.about-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.about-text{
+  max-width:1100px;
+  margin-inline:auto;
+}
+
+/* Section Parcours : largeur globale */
+#parcours .container{
+  max-width:1280px;
+}
+
+/* Espacement entre les colonnes */
+#parcours .row{
+  --bs-gutter-x:2.5rem;
+  --bs-gutter-y:2rem;
+}
+
+/* Cartes de la section Parcours */
+#parcours .card{
+  border-radius:18px;
+}
+
+/* Carte Expériences (colonne gauche) */
+#parcours .col-md-6:first-child .card{
+  background:white;
+  border:1px solid var(--panel-border);
+  box-shadow:var(--panel-shadow);
+}
+
+/* Carte Diplômes (colonne droite) */
+#parcours .col-md-6:last-child .card{
+  background:white;
+  border:1px solid var(--panel-border);
+  box-shadow:var(--panel-shadow);
+}
+
+#parcours .card-body{
+  padding:2rem 2.25rem;
+  text-align:left; /* texte aligné à gauche dans les cartes */
+}
+
+#parcours .card-title{
+  font-size:clamp(1.35rem,1.1vw + 1rem,1.8rem);
+  margin-bottom:1.25rem;
+  text-align:center; /* titre centré */
+}
+
+/* Texte dans Parcours */
+#parcours strong{
+  font-weight:700;
+}
+#parcours .text-muted{
+  font-size:clamp(.98rem,.25vw + .9rem,1.05rem);
+}
+
+/* Timeline vertical dans Parcours */
+#parcours .timeline{
+  position:relative;
+  margin:0;
+  padding-left:1.6rem;
+}
+#parcours .timeline::before{
+  content:"";
+  position:absolute;
+  left:0.6rem;
+  top:0.25rem;
+  bottom:0.25rem;
+  width:4px;
+  background:rgba(15,23,42,.16);
+  border-radius:2px;
+}
+
+/* On cache les points verts d'origine */
+#parcours .t-dot{
+  display:none;
+}
+
+/* Chaque élément de timeline */
+#parcours .t-item{
+  margin-bottom:.6rem;
+}
+
+/* Badges de diplômes généraux dans Parcours */
+#parcours .badge-chip{
+  display:inline-block;
+  padding:.55rem .95rem;
+  font-size:1rem;
+  font-weight:600;
+  border-radius:999px;
+  background:transparent;
+  border:2px solid rgba(0,0,0,.10);
+  box-shadow:none;
+}
+
+/* XL */
+@media (min-width: 1400px){
+  #parcours .container{
+    max-width:1360px;
+  }
+}
+
+/* Mobile Parcours */
+@media (max-width: 575.98px){
+  #parcours .card-body{
+    padding:1.25rem 1.1rem;
+  }
+}
+
+/* CV */
+#cv .container{
+  max-width:960px;
+}
+#cv .card{
+  border-radius:18px !important;
+}
+#cv .card-body{
+  padding:2.3rem 2.5rem;
+}
+#cv .card-body h3{
+  font-size:clamp(1.35rem,1.1vw + 1rem,1.8rem);
+  margin-bottom:1.5rem;
+}
+#cv .btn{
+  padding:.85rem 2.5rem;
+  font-size:1rem;
+  border-radius:999px;
+}
+#cv .card-body p.small{
+  margin-top:1.25rem;
+  font-size:.95rem;
+}
+@media (max-width: 575.98px){
+  #cv .card-body{
+    padding:1.6rem 1.4rem;
+  }
+  #cv .btn{
+    width:100%;
+  }
+}
+
+/* Contact */
+#contact .container{
+  max-width:960px;
+}
+#contact .card{
+  border-radius:18px !important;
+}
+#contact .card-body{
+  padding:2.3rem 2.3rem;
+}
+#contact .k-icon{
+  width:52px;
+  height:52px;
+  font-size:1.3rem;
+}
+#contact .social-btn{
+  width:48px;
+  height:48px;
+  margin:12px;
+  font-size:1.4rem;
+}
+@media (max-width: 575.98px){
+  #contact .card-body{
+    padding:1.8rem 1.4rem;
+  }
+  #contact .social-btn{
+    width:44px;
+    height:44px;
+    margin:8px;
+  }
+}
+
+/* Images des projets */
+.project-cover{
+  width:100%;
+  height:190px;
+  overflow:hidden;
+  border-radius:16px 16px 0 0;
+}
+.project-cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Liste des diplômes (accordion) */
+.diplomes-list{
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  align-items:flex-start;
+  margin:0;
+  padding:0;
+}
+
+/* Chaque <details> de diplôme */
+.diplome{
+  width:100%;
+}
+
+/* Summary cliquable sans puce */
+.diplome summary{
+  list-style:none;
+  cursor:pointer;
+}
+.diplome summary::-webkit-details-marker{
+  display:none;
+}
+
+/* Badge cliquable pour chaque diplôme */
+.diplome summary .badge-chip{
+  display:inline-block;
+  padding:.55rem .95rem;
+  font-size:1rem;
+  font-weight:600;
+  border-radius:999px;
+  background:#f6f8fb;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 4px 10px rgba(15,23,42,.05);
+  transition:background .15s ease, transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+/* Effet au survol / focus d’un diplôme */
+#parcours .diplome summary .badge-chip:hover,
+#parcours .diplome summary .badge-chip:focus-visible{
+  background:rgba(42,161,152,.06);
+  border-color:rgba(42,161,152,.35);
+  box-shadow:0 8px 18px rgba(11,170,157,0.22);
+  transform:translateY(-1px);
+  color:var(--accent);
+}
+
+/* Diplôme ouvert */
+.diplome[open] summary .badge-chip{
+  background:rgba(42,161,152,.08);
+  border-color:rgba(42,161,152,.45);
+  box-shadow:0 6px 14px rgba(42,161,152,.20);
+  transform:translateY(-1px);
+}
+
+/* Description de chaque diplôme */
+.diplome-desc{
+  margin:.5rem 0 0 0.3rem;
+  font-size:.95rem;
+  color:var(--muted);
+  max-width:100%;
+}
+
+/* Chips compétences & projets */
 #competences .skill-card{
-  background:white; border:1px solid rgba(0,0,0,.06);
+  background:white;
+  border:1px solid rgba(0,0,0,.06);
   transition:transform .15s ease, box-shadow .15s ease;
 }
-#competences .skill-card:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.10); }
-#competences .skill-head{ padding:1.25rem 1.25rem .75rem; background:rgba(0,0,0,.02); }
-#competences .skill-divider{ height:2px; width:150px; background:rgba(0,0,0,.08); border-radius:2px; margin:.5rem 0 .75rem; }
-#competences .skill-body{ padding:1rem 1.25rem 1.25rem; display:flex; flex-wrap:wrap; gap:.5rem; justify-content: center; }
+#competences .skill-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+}
+#competences .skill-head{
+  padding:1.25rem 1.25rem .75rem;
+  background:rgba(0,0,0,.02);
+}
+#competences .skill-divider{
+  height:2px;
+  width:150px;
+  background:rgba(0,0,0,.08);
+  border-radius:2px;
+  margin:.5rem 0 .75rem;
+}
+#competences .skill-body{
+  padding:1rem 1.25rem 1.25rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  justify-content:center;
+}
 
+/* Style général des skill-chips */
 #competences .skill-chip,
 .badge-chip,
 #projets .skill-chip{
-  display:inline-block; padding:.38rem .7rem; font-size:.9rem; font-weight:600;
-  background:#f6f8fb; border:1px solid rgba(0,0,0,.08); color:#1a1a1a; border-radius:999px; white-space:nowrap;
-  
-
+  display:inline-block;
+  padding:.38rem .7rem;
+  font-size:.9rem;
+  font-weight:600;
+  background:#f6f8fb;
+  border:1px solid rgba(0,0,0,.08);
+  color:#1a1a1a;
+  border-radius:999px;
+  white-space:nowrap;
 }
-#competences .skill-chip:hover{ background:#6e9e98ae; transform:translateY(-1px); }
 
-/* PROJETS (mêmes styles cartes claires) */
+/* Pas d’effet hover sur la plupart des skill-chip */
+#competences .skill-chip:hover{
+  background:#f6f8fb;
+  transform:none;
+}
+
+/* Hover uniquement pour les tech Back-End (filtre projets) */
+#competences .skill-body .tech-filter:hover{
+  background:#6e9e98ae;
+  transform:translateY(-1px);
+  cursor:pointer;
+}
+
+/* Cartes de projets */
 #projets .card{
   background:white;
   border:1px solid rgba(0,0,0,.06);
   border-radius:16px;
   box-shadow:0 8px 22px rgba(2,6,23,0.08);
   color:var(--ink);
-  text-align: center;
+  text-align:center;
 }
 #projets .card:hover{
   transform:translateY(-2px);
-  box-shadow:0 14px 28px rgba(2,6,23,.12) ;
-  border-color:rgba(0,0,0,.10) ;
+  box-shadow:0 14px 28px rgba(2,6,23,.12);
+  border-color:rgba(0,0,0,.10);
 }
-#projets .divider{ height:1px; background:rgba(0,0,0,.08); margin:.6rem 0 1rem; }
+#projets .divider{
+  height:1px;
+  background:rgba(0,0,0,.08);
+  margin:.6rem 0 1rem;
+}
 #projets .skill-chip{
-  background:#f6f8fb ;
-  border:1px solid rgba(0,0,0,.08) ;
-  color:#1a1a1a ;
+  background:#f6f8fb;
+  border:1px solid rgba(0,0,0,.08);
+  color:#1a1a1a;
 }
 
-/* PARCOURS (timeline) */
-.timeline{ position:relative; margin-left:.25rem; padding-left:1rem; }
-.timeline::before{
-  content:""; position:absolute; left:.35rem; top:.25rem; bottom:.25rem;
-  width:3px; background:rgba(15,23,42,.12); border-radius:2px;
-}
-.t-item{ position:relative; display:flex; gap:.75rem; margin-bottom:1.1rem; }
-.t-item:last-child{ margin-bottom:0; }
-.t-dot{
-  position:relative; left:-.1rem; top:.2rem;
-  width:12px; height:12px; border-radius:50%;
-  background:var(--accent); box-shadow:0 0 0 4px rgba(42,161,152,.22); flex:0 0 12px;
+/* Skill Back-End sélectionnée (filtre actif) */
+.tech-filter-active{
+  background:rgba(42,161,152,.08);
+  border-color:rgba(42,161,152,.45);
+  box-shadow:0 6px 14px rgba(42,161,152,.20);
 }
 
-/* CONTACT */
-.k-icon{
-  width:44px; height:44px; border-radius:50%;
-  display:inline-flex; align-items:center; justify-content:center;
-  background:var(--accent); color:#fff; font-size:1.1rem;
-  box-shadow:0 8px 18px rgba(42,161,152,.25);
+/* Projet mis en avant par le filtre */
+.project-highlight{
+  outline:2px solid var(--accent);
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(2,6,23,.18);
 }
 
-/* FORMES FLOTTANTES */
-.floating-shapes{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:1; }
-.shape{ position:absolute; transform-origin:center; animation:floatUp linear infinite; will-change:transform, opacity; }
-.layer-1 .shape{ opacity:.55; filter:blur(.3px) drop-shadow(0 6px 14px rgba(42,161,152,.35)); }
-.layer-2 .shape{ opacity:.38; filter:blur(.8px) drop-shadow(0 4px 10px rgba(42,161,152,.25)); }
-.layer-3 .shape{ opacity:.22; filter:blur(1.6px) drop-shadow(0 2px 6px rgba(42,161,152,.18)); }
-.shape.circle{ border-radius:50%; background:rgba(42,161,152,.65); }
-.shape.square{ background:rgba(42,161,152,.55); border-radius:12px; }
-.shape.triangle{ width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-bottom:34px solid rgba(42,161,152,.55); }
+/* Formes flottantes décoratives */
+.floating-shapes{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+.shape{
+  position:absolute;
+  transform-origin:center;
+  animation:floatUp linear infinite;
+  will-change:transform,opacity;
+}
+.layer-1 .shape{
+  opacity:.55;
+  filter:blur(.3px) drop-shadow(0 6px 14px rgba(42,161,152,.35));
+}
+.layer-2 .shape{
+  opacity:.38;
+  filter:blur(.8px) drop-shadow(0 4px 10px rgba(42,161,152,.25));
+}
+.layer-3 .shape{
+  opacity:.22;
+  filter:blur(1.6px) drop-shadow(0 2px 6px rgba(42,161,152,.18));
+}
+.shape.circle{
+  border-radius:50%;
+  background:rgba(42,161,152,.65);
+}
+.shape.square{
+  background:rgba(42,161,152,.55);
+  border-radius:12px;
+}
+.shape.triangle{
+  width:0;
+  height:0;
+  border-left:20px solid transparent;
+  border-right:20px solid transparent;
+  border-bottom:34px solid rgba(42,161,152,.55);
+}
 
 @keyframes floatUp{
-  0%{ transform:translateY(110vh) scale(1) rotate(0deg); opacity:0; }
-  10%{ opacity:1; }
-  100%{ transform:translateY(-15vh) scale(1.25) rotate(360deg); opacity:0; }
-}
-
-/* Garantir le contenu au-dessus des formes */
-header, footer, main > section > .container{ position:relative; z-index:2; }
-
-/* Cartes (look clair, pas de verre global) */
-.card{
-  background: white ;
-  border: 1px solid var(--panel-border);
-  box-shadow: var(--panel-shadow);
-  color: var(--ink);
-}
-.list-group-item{
-  background: white;
-  border-color: var(--panel-border);
-}
-
-/* Responsive doux */
-@media (max-width: 575.98px){
-  .social-btn{ width:36px; height:36px; margin:8px; }
-  .fab{ right:16px; bottom:84px; }
-}
-
-/* FOND VERT POUR TOUTES LES SECTIONS */
-.section-bg{
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #e6f7f1, #c8ede0); /* vert très clair */
-}
-/* une section sur deux un peu plus foncée */
-.section-bg:nth-of-type(even){
-  background: linear-gradient(135deg, #d2efe5, #b6e0d3);
-}
-
-/* Avatar À propos */
-.about-avatar{
-  width: 350px; height: 350px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid rgba(42,161,152,.35);   /* rappelle l’accent */
-  box-shadow: 0 8px 22px rgba(2,6,23,.12);
-  background: #fff;
-}
-.about-avatar img{
-  width: 100%; height: 100%; object-fit: cover;
-}
-
-/* À propos : plus de barre verte sous le titre */
-#a-propos .section-head .accent-bar{ display:none; }
-
-/* À propos : texte centré, largeur confortable, sans “carte” */
-.about-text{
-  max-width: 1100px;
-  margin-inline: auto;
-}
-
-
-
-
-/* Largeur globale de la section */
-#parcours .container{
-  max-width: 1280px;
-}
-
-/* Espace entre les deux colonnes */
-#parcours .row{ 
-  --bs-gutter-x: 2.5rem;
-  --bs-gutter-y: 2rem;
-}
-
-/* Cartes générales de la section Parcours */
-#parcours .card{
-  border-radius: 18px ;
-}
-
-/* Carte “Expériences” (gauche) : on garde le panel */
-#parcours .col-md-6:first-child .card{
-  background: white;
-  border: 1px solid var(--panel-border);
-  box-shadow: var(--panel-shadow);
-}
-
-/* Carte “Diplômes” (droite) : pas de fond, pas de bordure, pas d’ombre */
-#parcours .col-md-6:last-child .card{
-  background: white;
-  border: 1px solid var(--panel-border);
-  box-shadow: var(--panel-shadow);
-}
-
-#parcours .card-body{
-  padding: 2rem 2.25rem;
-}
-
-#parcours .card-title{
-  font-size: clamp(1.35rem, 1.1vw + 1rem, 1.8rem);
-  margin-bottom: 1.25rem;
-}
-
-/* Texte */
-#parcours strong{ font-weight: 700; }
-#parcours .text-muted{
-  font-size: clamp(.98rem, .25vw + .9rem, 1.05rem);
-}
-
-/* Timeline (sans points verts) */
-#parcours .timeline{
-  position: relative;
-  margin: 0;
-  padding-left: 1.6rem;     /* place pour la barre */
-}
-
-#parcours .timeline::before{
-  content:"";
-  position:absolute;
-  left: 0.6rem;
-  top: 0.25rem;
-  bottom: 0.25rem;
-  width: 4px;
-  background: rgba(15,23,42,.16);
-  border-radius: 2px;
-}
-
-/* on supprime les points verts */
-#parcours .t-dot{
-  display: none;
-}
-
-/* Badges "Diplômes" */
-#parcours .badge-chip{
-  display: inline-block;
-  
-  padding: .55rem .95rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 999px;
-  background: transparent;                    /* plus de fond blanc */
-  border: 2px solid rgba(0,0,0,.10);          /* petit contour léger (optionnel) */
-  box-shadow: none;                           /* plus d’ombre blanche */
-}
-
-
-/* XL */
-@media (min-width: 1400px){
-  #parcours .container{ max-width: 1360px; }
-}
-
-/* Mobile */
-@media (max-width: 575.98px){
-  #parcours .card-body{ padding: 1.25rem 1.1rem; }
-}
-
-
-/* CV */
-#cv .container{
-  max-width: 960px;
-}
-#cv .card{
-  border-radius: 18px !important;
-}
-#cv .card-body{
-  padding: 2.3rem 2.5rem;
-}
-#cv .card-body h3{
-  font-size: clamp(1.35rem, 1.1vw + 1rem, 1.8rem);
-  margin-bottom: 1.5rem;
-}
-#cv .btn{
-  padding: .85rem 2.5rem;
-  font-size: 1rem;
-  border-radius: 999px;
-}
-#cv .card-body p.small{
-  margin-top: 1.25rem;
-  font-size: .95rem;
-}
-@media (max-width: 575.98px){
-  #cv .card-body{
-    padding: 1.6rem 1.4rem;
+  0%{
+    transform:translateY(110vh) scale(1) rotate(0deg);
+    opacity:0;
   }
-  #cv .btn{
-    width: 100%;
+  10%{
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-15vh) scale(1.25) rotate(360deg);
+    opacity:0;
   }
 }
 
-
-/* CONTACT — agrandir la carte + icônes */
-#contact .container{
-  max-width: 960px;
-}
-#contact .card{
-  border-radius: 18px !important;
-}
-#contact .card-body{
-  padding: 2.3rem 2.3rem;
-}
-#contact .k-icon{
-  width: 52px;
-  height: 52px;
-  font-size: 1.3rem;
-}
-#contact .social-btn{
-  width: 48px;
-  height: 48px;
-  margin: 12px;
-  font-size: 1.4rem;
-}
-@media (max-width: 575.98px){
-  #contact .card-body{
-    padding: 1.8rem 1.4rem;
-  }
-  #contact .social-btn{
-    width: 44px;
-    height: 44px;
-    margin: 8px;
-  }
+/* Contenu au-dessus des formes flottantes */
+header, footer, main > section > .container{
+  position:relative;
+  z-index:2;
 }
 
-/* PARCOURS – aligner proprement le texte des expériences */
-#parcours .card-body{
-  text-align: left;          /* on enlève le centrage hérité du container */
+/* Switch langue FR / NL  */
+.lang-toggle{
+  display:inline-flex;
+  align-items:center;
+  padding:2px;
+  border-radius:999px;
+  background:#f3f4f6;
+  border:1px solid rgba(15,23,42,.08);
 }
 
-#parcours .card-title{
-  text-align: center;        /* mais on garde le titre "Expériences" centré */
+.lang-btn{
+  border:none;
+  background:transparent;
+  color:var(--ink);
+  font-size:.85rem;
+  font-weight:600;
+  padding:.25rem .9rem;
+  border-radius:999px;
+  min-width:42px;
+  text-align:center;
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease, box-shadow .15s ease, transform .12s ease;
 }
 
-/* optionnel : réduire un peu l'espace entre les deux expériences */
-#parcours .t-item{
-  margin-bottom: .6rem;
+.lang-btn:hover{
+  background:rgba(15,23,42,.04);
 }
 
-
-.project-cover{
-  width: 100%;
-  height: 190px;
-  overflow: hidden;
-  border-radius: 16px 16px 0 0;
-}
-.project-cover img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
- 
+.lang-btn.active{
+  background:var(--ink);
+  color:#fff;
+  box-shadow:0 4px 10px rgba(15,23,42,.25);
+  transform:translateY(-1px);
 }
 
-
-/* Liste des diplômes (accordion léger) */
-.diplomes-list{
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0;
+.lang-btn:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
 }
-
-/* Chaque bloc <details> */
-.diplome{
-  width: 100%;
-}
-
-/* Enlever le marqueur par défaut et styliser le summary */
-.diplome summary{
-  list-style: none;
-  cursor: pointer;
-}
-
-/* Supprimer le chevron par défaut sur WebKit */
-.diplome summary::-webkit-details-marker{
-  display: none;
-}
-
-/* Badge clickable */
-.diplome summary .badge-chip{
-  display: inline-block;
-  padding: .55rem .95rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 999px;
-  background: #f6f8fb;
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 4px 10px rgba(15,23,42,.05);
-  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
-}
-
-.diplome[open] summary .badge-chip{
-  background: rgba(42,161,152,.08);
-  border-color: rgba(42,161,152,.35);
-  box-shadow: 0 6px 14px rgba(42,161,152,.20);
-}
-
-/* Texte de description */
-.diplome-desc{
-  margin: .5rem 0 0 0.3rem;
-  font-size: .95rem;
-  color: var(--muted);
-  max-width: 100%;
-}
-

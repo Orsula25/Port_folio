@@ -95,3 +95,58 @@ window.addEventListener('scroll', onScrollHeader, { passive: true });
 
 
 })();
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Chips cliquables UNIQUEMENT en Back-End
+  const techFilters = document.querySelectorAll('#competences .skill-card:first-child .tech-filter');
+  const projectArticles = document.querySelectorAll('#projets article');
+  const projetsSection = document.querySelector('#projets');
+
+  if (!techFilters.length || !projectArticles.length || !projetsSection) return;
+
+  function clearHighlights() {
+    techFilters.forEach(chip => chip.classList.remove('tech-filter-active'));
+  }
+
+  function showAllProjects() {
+    projectArticles.forEach(art => art.classList.remove('d-none'));
+  }
+
+  techFilters.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const tech = chip.dataset.tech;
+      if (!tech) return;
+
+      const isAlreadyActive = chip.classList.contains('tech-filter-active');
+
+      // Si on reclique sur le même chip -> on enlève le filtre
+      if (isAlreadyActive) {
+        clearHighlights();
+        showAllProjects();
+        return;
+      }
+
+      // Nouveau filtre
+      clearHighlights();
+      chip.classList.add('tech-filter-active');
+
+      // Scroll vers la section Projets
+      projetsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Filtrage : afficher seulement les projets ayant cette techno
+      projectArticles.forEach(article => {
+        const card = article.querySelector('.card');
+        const hasTech = card && card.querySelector(`.project-tech[data-tech="${tech}"]`);
+
+        if (hasTech) {
+          article.classList.remove('d-none');
+        } else {
+          article.classList.add('d-none');
+        }
+      });
+    });
+  });
+});
+
