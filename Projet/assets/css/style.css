@@ -760,3 +760,22 @@ header, footer, main > section > .container{
   outline:2px solid var(--accent);
   outline-offset:2px;
 }
+
+.k-icon {
+  width: 56px;              /* taille du rond (ajuste si besoin) */
+  height: 56px;
+  border-radius: 50%;
+  display: flex;            /* pour centrer l’icône dedans */
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;   /* <-- centre horizontalement */
+  /* optionnel : couleur de fond, etc.
+  background: #2aa198;
+  color: #fff;
+  */
+}
+
+.k-icon i {
+  font-size: 1.6rem;        /* taille de l’icône */
+}
+
